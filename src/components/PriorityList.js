@@ -50,7 +50,9 @@ const PriorityList = () => {
         </div>
       ))}
       {/* Message to display when there is space for more priorities */}
-      {priorities.length < 3 && <p>Drag tasks here (max 3)</p>}
+      {priorities.length < 3 && (
+        <p>Top 3 Important Tasks? Drag and Drop Here! (max 3)</p>
+      )}
     </div>
   );
 };
