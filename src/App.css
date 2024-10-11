@@ -1,43 +1,44 @@
-/* Styling for the DateSelector component */
+/* Styling for the flex container that wraps the left and right sections */
+.timebox-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
 
-/* Adds spacing around the DateSelector component */
-.date-selector {
+/* Left section takes up 50% of the width */
+.left-section {
+  width: 50%;
+  margin-right: 20px; /* Adds space between left and right sections */
+}
+
+/* Right section takes up 50% of the width */
+.right-section {
+  width: 50%;
+}
+
+/* Styling for the priority list */
+.priority-list {
+  border: 1px solid #ccc;
+  padding: 15px;
   margin-bottom: 20px;
 }
 
-/* Adds spacing between the label and input fields */
-.date-selector label {
-  margin-right: 10px;
-}
-
-/* Styling for Priority List */
-.priority-list {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.priority-item {
-  margin: 5px 0;
-  padding: 10px;
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Styling for Brain Dump */
+/* Styling for the brain dump */
 .brain-dump {
-  margin-top: 20px;
-  padding: 10px;
   border: 1px solid #ccc;
+  padding: 15px;
 }
 
-.task-item {
-  margin: 5px 0;
-  padding: 10px;
+/* Styling for the time slots */
+.time-slots {
+  border: 1px solid #ccc;
+  padding: 15px;
+}
+
+/* Adjust the task slot styling to fit in the right section */
+.time-slot {
+  margin-bottom: 10px;
   background-color: #f9f9f9;
+  padding: 10px;
   border: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
 }

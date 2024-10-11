@@ -4,6 +4,7 @@ import "./App.css"; // Importing the CSS file for styling.
 import DateSelector from "./components/DateSelector"; // Importing the DateSelector component.
 import PriorityList from "./components/PriorityList"; // Importing the PriorityList component
 import BrainDump from "./components/BrainDump"; // Importing BrainDump component
+import TimeSlots from "./components/TimeSlots"; // Importing TimeSlots component
 
 function App() {
   return (
@@ -14,13 +15,21 @@ function App() {
       {/* Rendering the DateSelector component to allow day and date selection */}
       <DateSelector />
 
-      {/* Rendering the PriorityList component */}
-      <PriorityList />
+      {/* Flex container to hold both the left and right sections */}
+      <div className="timebox-container">
+        {/* Left section for Top Priorities and Brain Dump */}
+        <div className="left-section">
+          {/* Rendering the PriorityList component */}
+          <PriorityList />
+          {/* Rendering the PriorityList component */}
+          <BrainDump />
+        </div>
 
-      {/* Rendering the BrainDump component */}
-      <BrainDump />
-
-      {/* Other components (like Brain Dump, Top Priorities, and Time Slots) will be added here later */}
+        {/* Right section for Time Slots */}
+        <div className="right-section">
+          <TimeSlots />
+        </div>
+      </div>
     </div>
   );
 }
