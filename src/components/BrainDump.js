@@ -51,6 +51,8 @@ const BrainDump = () => {
   return (
     <div className="brain-dump">
       <h2>Brain Dump</h2>
+      <h3>Feeling overwhelmed? Just dump your worries here!</h3>
+      <h3>Hold to Drag and Drop!</h3>
       <input
         type="text"
         placeholder="Enter a task and press Enter"
