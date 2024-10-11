@@ -2,6 +2,7 @@
 import React from "react";
 import "./App.css"; // Importing the CSS file for styling.
 import DateSelector from "./components/DateSelector"; // Importing the DateSelector component.
+import PriorityList from "./components/PriorityList"; // Importing the PriorityList component
 
 function App() {
   return (
