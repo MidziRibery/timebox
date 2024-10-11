@@ -1,3 +1,8 @@
+/* Centering the title "Timebox App" */
+h1 {
+  text-align: center; /* Centers the title horizontally */
+}
+
 /* Styling for the flex container that wraps the left and right sections */
 .timebox-container {
   display: flex;
@@ -5,15 +10,42 @@
   margin-top: 20px;
 }
 
-/* Left section takes up 50% of the width */
+/* Left section takes up 30% of the width */
 .left-section {
-  width: 50%;
+  width: 30%;
   margin-right: 20px; /* Adds space between left and right sections */
 }
 
-/* Right section takes up 50% of the width */
+/* Right section takes up 70% of the width */
 .right-section {
-  width: 50%;
+  width: 70%;
+}
+
+/* Date Selector (Day and Date fields) */
+.date-selector {
+  display: flex;
+  justify-content: center; /* Ensures spacing between Day and Date */
+  align-items: center; /* Vertically aligns items in the center */
+  margin-top: 20px;
+  gap: 20px;
+}
+
+/* Flex container for Day and Date pairs */
+.date-selector .pair {
+  display: flex;
+  align-items: center; /* Vertically aligns the label and dropdown together */
+}
+
+/* Styling for the Day and Date fields */
+.date-selector label {
+  margin-right: 10px; /* Adds some space between the label and dropdown */
+}
+
+.date-selector select,
+.date-selector input[type="date"] {
+  padding: 5px;
+  font-size: 14px;
+  width: 150px; /* Adjust width for better spacing */
 }
 
 /* Styling for the priority list */
