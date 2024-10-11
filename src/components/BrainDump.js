@@ -7,6 +7,9 @@ const BrainDump = () => {
   const colors = ["#c3e6cb", "#a8d5e2", "#d4c4fb"]; // pastel colors to rotate
   const [colorIndex, setColorIndex] = useState(0);
 
+  // Track which tasks are struck-through
+  const [strikeTasks, setStrikeTasks] = useState([]);
+
   // Handle input change
   const handleInputChange = (e) => {
     setTaskInput(e.target.value);
@@ -20,9 +23,24 @@ const BrainDump = () => {
         color: colors[colorIndex % colors.length], // Assign a color in rotation
       };
       setTasks([...tasks, newTask]);
+      setStrikeTasks([...strikeTasks, false]); // Initialize the strike-through state for this task
       setTaskInput("");
       setColorIndex(colorIndex + 1); // Rotate to next color
     }
+  };
+
+  // Toggle strike-through with the checkbox
+  const handleCheckboxChange = (index) => {
+    const newStrikeTasks = [...strikeTasks];
+    newStrikeTasks[index] = !newStrikeTasks[index]; // Toggle strike-through
+    setStrikeTasks(newStrikeTasks);
+  };
+
+  // Remove task function
+  const removeTask = (index) => {
+    const newTasks = tasks.filter((_, i) => i !== index);
+    setTasks(newTasks);
+    setStrikeTasks(strikeTasks.filter((_, i) => i !== index));
   };
 
   // Handle dragging from Brain Dump
@@ -47,11 +65,30 @@ const BrainDump = () => {
             className="task-item"
             draggable
             onDragStart={(e) => handleDragStart(e, task)} // Pass task object with color
-            style={{ backgroundColor: task.color }} // Set background color
+            style={{
+              backgroundColor: task.color,
+              display: "flex",
+              alignItems: "center", // Ensures alignment of checkbox and text
+            }}
           >
-            {task.text}
+            <input
+              type="checkbox"
+              onChange={() => handleCheckboxChange(index)}
+              checked={strikeTasks[index]} // Bind checkbox to strike state
+              style={{ width: "20px", height: "20px", marginRight: "10px" }} // Larger checkbox
+            />
+            <span
+              style={{
+                fontSize: "18px",
+                textDecoration: strikeTasks[index] ? "line-through" : "none", // Apply strike only to text
+                flexGrow: 1,
+              }}
+            >
+              {task.text}
+            </span>
             <button
-              onClick={() => setTasks(tasks.filter((_, i) => i !== index))}
+              onClick={() => removeTask(index)}
+              style={{ marginLeft: "10px" }}
             >
               X
             </button>

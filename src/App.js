@@ -5,6 +5,7 @@ import DateSelector from "./components/DateSelector"; // Importing the DateSelec
 import PriorityList from "./components/PriorityList"; // Importing the PriorityList component
 import BrainDump from "./components/BrainDump"; // Importing BrainDump component
 import TimeSlots from "./components/TimeSlots"; // Importing TimeSlots component
+import Dump from "./components/Instructions";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <PriorityList />
           {/* Rendering the PriorityList component */}
           <BrainDump />
+          <Dump />
         </div>
 
         {/* Right section for Time Slots */}
