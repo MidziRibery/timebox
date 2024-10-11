@@ -1,22 +1,22 @@
 /* Centering the title "Timebox App" */
 h1 {
-  text-align: center; /* Centers the title horizontally */
+  text-align: center;
 }
 
-/* Styling for the flex container that wraps the left and right sections */
+/* Flex container for left and right sections */
 .timebox-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-/* Left section takes up 30% of the width */
+/* Left section styling */
 .left-section {
   width: 30%;
-  margin-right: 20px; /* Adds space between left and right sections */
+  margin-right: 20px;
 }
 
-/* Right section takes up 70% of the width */
+/* Right section styling */
 .right-section {
   width: 70%;
 }
@@ -24,53 +24,85 @@ h1 {
 /* Date Selector (Day and Date fields) */
 .date-selector {
   display: flex;
-  justify-content: center; /* Ensures spacing between Day and Date */
-  align-items: center; /* Vertically aligns items in the center */
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
   gap: 20px;
 }
 
-/* Flex container for Day and Date pairs */
-.date-selector .pair {
-  display: flex;
-  align-items: center; /* Vertically aligns the label and dropdown together */
-}
-
 /* Styling for the Day and Date fields */
 .date-selector label {
-  margin-right: 10px; /* Adds some space between the label and dropdown */
+  margin-right: 10px;
 }
 
 .date-selector select,
 .date-selector input[type="date"] {
   padding: 5px;
   font-size: 14px;
-  width: 150px; /* Adjust width for better spacing */
+  width: 150px;
 }
 
-/* Styling for the priority list */
+/* Styling for priority list */
 .priority-list {
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 20px;
 }
 
-/* Styling for the brain dump */
+/* Styling for brain dump */
 .brain-dump {
   border: 1px solid #ccc;
   padding: 15px;
 }
 
-/* Styling for the time slots */
-.time-slots {
-  border: 1px solid #ccc;
-  padding: 15px;
+/* Time slots container */
+.time-slots-container {
+  width: 100%;
+  margin-top: 20px;
 }
 
-/* Adjust the task slot styling to fit in the right section */
-.time-slot {
+/* Header row to display :00 and :30 */
+.time-slots-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.hour-column-header {
+  width: 5%; /* Ensures the header for hours has space */
+}
+
+.time-slot-header {
+  width: 45%; /* Matches the width of the time slots below */
+}
+
+/* Time slot row */
+.time-slot-row {
+  display: flex;
+  justify-content: space-between;
   margin-bottom: 10px;
-  background-color: #f9f9f9;
+  align-items: center;
+}
+
+.hour-column {
+  width: 5%; /* Adjusted to make the hour column narrower */
+  text-align: center;
+}
+
+.time-slot {
+  width: 45%; /* Matches width to the headers */
   padding: 10px;
   border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.task-slot {
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  text-align: center;
 }
