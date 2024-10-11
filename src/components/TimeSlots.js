@@ -2,24 +2,24 @@ import React, { useState } from "react";
 
 const TimeSlots = () => {
   const hours = [
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
+    "5AM",
+    "6AM",
+    "7AM",
+    "8AM",
+    "9AM",
+    "10AM",
+    "11AM",
+    "12PM",
+    "1PM",
+    "2PM",
+    "3PM",
+    "4PM",
+    "5PM",
+    "6PM",
+    "7PM",
+    "8PM",
+    "9PM",
+    "10PM",
   ];
 
   const [tasksInSlots00, setTasksInSlots00] = useState(
@@ -29,7 +29,6 @@ const TimeSlots = () => {
     Array(hours.length).fill(null)
   );
 
-  // Handle drop into time slots
   const handleDrop = (e, slotType, index) => {
     const task = e.dataTransfer.getData("text");
 
@@ -44,16 +43,13 @@ const TimeSlots = () => {
     }
   };
 
-  // Allow drop action
   const allowDrop = (e) => {
     e.preventDefault();
   };
 
-  // Handle dragging out of a time slot (cut)
   const handleDragStart = (e, task, slotType, index) => {
     e.dataTransfer.setData("text", task);
 
-    // Remove task from current slot
     if (slotType === ":00") {
       const newTasksInSlots00 = [...tasksInSlots00];
       newTasksInSlots00[index] = null;
@@ -67,13 +63,13 @@ const TimeSlots = () => {
 
   return (
     <div className="time-slots-container">
+      <h2>Time Slots</h2> {/* New header for Time Slots */}
       {/* Header row for :00 and :30 */}
       <div className="time-slots-header">
         <div className="hour-column-header"></div> {/* Empty for alignment */}
         <div className="time-slot-header">:00</div>
         <div className="time-slot-header">:30</div>
       </div>
-
       {/* Time slots rendered side by side with hour column */}
       {hours.map((hour, index) => (
         <div className="time-slot-row" key={index}>

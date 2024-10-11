@@ -1,28 +1,44 @@
+/* === General App Styling === */
+
 /* Centering the title "Timebox App" */
 h1 {
   text-align: center;
+  color: #333; /* Darker gray for text */
 }
+
+/* Make the cursor a pointer (hand) when hovering over buttons and draggable items */
+button,
+[draggable="true"] {
+  cursor: pointer;
+}
+
+/* === Layout Containers === */
 
 /* Flex container for left and right sections */
 .timebox-container {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  background-color: #f1f3f4; /* Subtle light gray background */
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* Left section styling */
 .left-section {
   width: 30%;
   margin-right: 5px;
-  padding-left: 20px; /* Add some padding to push it away from the left */
+  padding-left: 20px;
 }
 
 /* Right section styling */
 .right-section {
   width: 70%;
+  padding-right: 20px;
 }
 
-/* Date Selector (Day and Date fields) */
+/* === Date Selector === */
+
 .date-selector {
   display: flex;
   justify-content: center;
@@ -31,62 +47,104 @@ h1 {
   gap: 20px;
 }
 
-/* Styling for the Day and Date fields */
-.date-selector label {
-  margin-right: 10px;
-}
-
 .date-selector select,
 .date-selector input[type="date"] {
   padding: 5px;
   font-size: 14px;
   width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
 }
+
+/* === Priority List and Brain Dump === */
 
 /* Styling for priority list */
 .priority-list {
-  border: 1px solid #ccc;
+  border: 2px solid #bbb;
   padding: 15px;
-  margin-bottom: 20px;
+  background-color: #e9f5fb; /* Soft blue background */
+  border-radius: 8px;
 }
 
 /* Styling for brain dump */
 .brain-dump {
-  border: 1px solid #ccc;
+  border: 2px solid #bbb;
   padding: 15px;
+  background-color: #fbeee9; /* Soft pink background */
+  border-radius: 8px;
 }
 
 /* Styling for the Brain Dump input field */
 .brain-dump input[type="text"] {
-  width: 100%; /* Make the input field take the full width of the parent container */
-  padding: 10px; /* Add some padding to make it look nicer */
-  font-size: 14px; /* Adjust the font size for better readability */
-  margin-top: 10px; /* Add some space between the input field and the label */
-  border: 1px solid #ccc; /* Add a border */
-  box-sizing: border-box; /* Ensure padding and border are included in the width */
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-/* Time slots container */
+.brain-dump ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* === Task List Styling === */
+.priority-item,
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  color: #333;
+}
+
+/* === Button Styling === */
+.priority-item button,
+.task-item button {
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.priority-item button:hover,
+.task-item button:hover {
+  background-color: #ff4d4d;
+}
+
+/* === Time Slot Styling === */
 .time-slots-container {
   width: 100%;
   margin-top: 20px;
+}
+
+.time-slots-container h2 {
+  text-align: center;
+  color: #333; /* Darker gray for better readability */
 }
 
 /* Header row to display :00 and :30 */
 .time-slots-header {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 10px 0;
   text-align: center;
   font-weight: bold;
-}
-
-.hour-column-header {
-  width: 5%; /* Ensures the header for hours has space */
+  color: #444;
 }
 
 .time-slot-header {
-  width: 45%; /* Matches the width of the time slots below */
+  width: 40%; /* Ensure proper space distribution */
+  margin-right: 1%; /* Adjust this value for finer control */
 }
 
 /* Time slot row */
@@ -98,79 +156,24 @@ h1 {
 }
 
 .hour-column {
-  width: 5%; /* Adjusted to make the hour column narrower */
+  width: 7%;
   text-align: center;
+  color: #555; /* Muted text color */
 }
 
 .time-slot {
-  width: 45%; /* Matches width to the headers */
-  padding: 10px;
+  width: 45%;
+  padding: 8px;
   border: 1px solid #ddd;
-  background-color: #f9f9f9;
+  background-color: #e2e6ea; /* Soft light gray for time slots */
   text-align: center;
+  border-radius: 5px;
 }
 
 .task-slot {
-  margin-top: 5px;
+  margin-top: 1px;
   padding: 5px;
   border: 1px solid #ddd;
   background-color: #fff;
-  text-align: center;
-}
-
-.brain-dump ul {
-  list-style-type: none; /* Remove bullet points */
-  padding-left: 0; /* Remove default padding on the left */
-  margin-left: 0; /* Remove any extra margin */
-}
-
-/* Styling for priority items and task items */
-.priority-item,
-.task-item {
-  display: flex;
-  justify-content: space-between; /* Ensures text and button are on opposite ends */
-  align-items: center; /* Centers the content vertically */
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #ddd; /* Add a light border around each task */
-  background-color: #f9f9f9; /* Light background color */
-}
-
-/* Styling for the 'Del' button */
-.priority-item button,
-.task-item button {
-  background-color: #ff6666;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 20px; /* Increase margin to move the button further right */
-  cursor: pointer;
-}
-
-/* Add a hover effect to the 'Del' button */
-.priority-item button:hover,
-.task-item button:hover {
-  background-color: #ff4d4d;
-}
-
-/* Ensure the task name stays on the left */
-.priority-item span,
-.task-item span {
-  flex-grow: 1; /* Allow the task name to take up the remaining space */
-  text-align: left; /* Align text to the left */
-}
-
-/* Make the cursor a pointer (hand) when hovering over buttons */
-button {
-  cursor: pointer;
-}
-
-/* Make the cursor a pointer (hand) when hovering over draggable tasks */
-.task-item {
-  cursor: pointer;
-}
-
-/* Make the cursor a pointer (hand) when hovering over any draggable element */
-[draggable="true"] {
-  cursor: pointer;
+  border-radius: 5px;
 }
