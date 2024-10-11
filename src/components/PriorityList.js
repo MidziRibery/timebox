@@ -1,5 +1,3 @@
-// src/components/PriorityList.js
-
 import React, { useState } from "react";
 
 const PriorityList = () => {
@@ -9,7 +7,9 @@ const PriorityList = () => {
   // Function to handle dropping a new task in the priority list.
   const handleDrop = (e) => {
     e.preventDefault();
-    const task = e.dataTransfer.getData("text"); // Retrieve the task text being dragged
+    const taskData = e.dataTransfer.getData("text"); // Retrieve the task (stringified object)
+    const task = JSON.parse(taskData); // Parse it back to an object
+
     // Only allow adding tasks if there are less than 3 priorities.
     if (priorities.length < 3) {
       setPriorities([...priorities, task]); // Add the new task to the priorities.
@@ -36,11 +36,15 @@ const PriorityList = () => {
       onDrop={handleDrop} // Handles the drop event
       onDragOver={handleDragOver} // Allows drag over the component
     >
-      <h2>Top Priorities</h2> {/* Heading for the top priorities section */}
+      <h2>Top Priorities</h2>
       {/* Render each priority in its own box */}
       {priorities.map((task, index) => (
-        <div key={index} className="priority-item">
-          {task}
+        <div
+          key={index}
+          className="priority-item"
+          style={{ backgroundColor: task.color }} // Apply the color of the task
+        >
+          {task.text} {/* Display the task text */}
           <button onClick={() => removeTask(index)}>X</button>{" "}
           {/* Button to remove a task */}
         </div>

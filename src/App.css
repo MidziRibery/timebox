@@ -20,7 +20,7 @@ button,
   justify-content: space-between;
   margin-top: 20px;
   background-color: #f1f3f4; /* Subtle light gray background */
-  padding: 10px;
+  padding: 10px 20px;
   border-radius: 10px;
 }
 
@@ -28,7 +28,7 @@ button,
 .left-section {
   width: 30%;
   margin-right: 5px;
-  padding-left: 20px;
+  padding-top: 20px; /* Remove any unnecessary top padding */
 }
 
 /* Right section styling */
@@ -52,7 +52,7 @@ button,
   padding: 5px;
   font-size: 14px;
   width: 150px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
 }
@@ -61,17 +61,17 @@ button,
 
 /* Styling for priority list */
 .priority-list {
-  border: 2px solid #bbb;
+  border: 3px solid #bbb;
   padding: 15px;
-  background-color: #e9f5fb; /* Soft blue background */
+  background-color: #fbeee9; /* Soft blue background */
   border-radius: 8px;
 }
 
 /* Styling for brain dump */
 .brain-dump {
-  border: 2px solid #bbb;
+  border: 3px solid #bbb;
   padding: 15px;
-  background-color: #fbeee9; /* Soft pink background */
+  background-color: #e9f5fb; /* Soft pink background */
   border-radius: 8px;
 }
 
@@ -83,6 +83,7 @@ button,
   margin-top: 10px;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .brain-dump ul {
@@ -118,13 +119,17 @@ button,
 
 .priority-item button:hover,
 .task-item button:hover {
-  background-color: #ff4d4d;
+  background-color: #f82e2e;
 }
 
 /* === Time Slot Styling === */
 .time-slots-container {
   width: 100%;
   margin-top: 20px;
+  border: 3px solid #bbb; /* Add border */
+  padding: 15px; /* Add padding inside the container */
+  background-color: #f3f4e6; /* Soft background color to match the style */
+  border-radius: 8px; /* Add rounded corners */
 }
 
 .time-slots-container h2 {
@@ -163,7 +168,7 @@ button,
 
 .time-slot {
   width: 45%;
-  padding: 8px;
+  padding: 3px;
   border: 1px solid #ddd;
   background-color: #e2e6ea; /* Soft light gray for time slots */
   text-align: center;
@@ -171,7 +176,6 @@ button,
 }
 
 .task-slot {
-  margin-top: 1px;
   padding: 5px;
   border: 1px solid #ddd;
   background-color: #fff;

@@ -29,16 +29,17 @@ const TimeSlots = () => {
     Array(hours.length).fill(null)
   );
 
+  // Handle drop into time slots, store task object with text and color
   const handleDrop = (e, slotType, index) => {
-    const task = e.dataTransfer.getData("text");
+    const taskData = JSON.parse(e.dataTransfer.getData("text"));
 
     if (slotType === ":00") {
       const newTasksInSlots00 = [...tasksInSlots00];
-      newTasksInSlots00[index] = task;
+      newTasksInSlots00[index] = taskData; // Store task object with text and color
       setTasksInSlots00(newTasksInSlots00);
     } else if (slotType === ":30") {
       const newTasksInSlots30 = [...tasksInSlots30];
-      newTasksInSlots30[index] = task;
+      newTasksInSlots30[index] = taskData; // Store task object with text and color
       setTasksInSlots30(newTasksInSlots30);
     }
   };
@@ -47,8 +48,9 @@ const TimeSlots = () => {
     e.preventDefault();
   };
 
+  // Handle dragging, include both text and color in the data transfer
   const handleDragStart = (e, task, slotType, index) => {
-    e.dataTransfer.setData("text", task);
+    e.dataTransfer.setData("text", JSON.stringify(task)); // Stringify the task object to include text and color
 
     if (slotType === ":00") {
       const newTasksInSlots00 = [...tasksInSlots00];
@@ -88,8 +90,13 @@ const TimeSlots = () => {
                 tasksInSlots00[index] &&
                 handleDragStart(e, tasksInSlots00[index], ":00", index)
               }
+              style={{
+                backgroundColor: tasksInSlots00[index]
+                  ? tasksInSlots00[index].color
+                  : "#f9f9f9", // Use task color if present
+              }}
             >
-              {tasksInSlots00[index] ? tasksInSlots00[index] : "No task"}
+              {tasksInSlots00[index] ? tasksInSlots00[index].text : "No task"}
             </div>
           </div>
           <div
@@ -104,8 +111,13 @@ const TimeSlots = () => {
                 tasksInSlots30[index] &&
                 handleDragStart(e, tasksInSlots30[index], ":30", index)
               }
+              style={{
+                backgroundColor: tasksInSlots30[index]
+                  ? tasksInSlots30[index].color
+                  : "#f9f9f9", // Use task color if present
+              }}
             >
-              {tasksInSlots30[index] ? tasksInSlots30[index] : "No task"}
+              {tasksInSlots30[index] ? tasksInSlots30[index].text : "No task"}
             </div>
           </div>
         </div>
