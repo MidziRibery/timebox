@@ -65,6 +65,8 @@ button,
   padding: 15px;
   background-color: #fbeee9; /* Soft blue background */
   border-radius: 8px;
+  margin-top: 0px; /* Remove any top margin */
+  padding-top: 0px; /* Optionally remove extra padding at the top */
 }
 
 /* Styling for brain dump */
@@ -73,6 +75,8 @@ button,
   padding: 15px;
   background-color: #e9f5fb; /* Soft pink background */
   border-radius: 8px;
+  margin-top: 0px; /* Remove any top margin */
+  padding-top: 0px; /* Optionally remove extra padding at the top */
 }
 
 /* Styling for the Brain Dump input field */
@@ -261,4 +265,11 @@ h2 {
     opacity: 0;
     transform: translateX(100px); /* Slide out while fading */
   }
+}
+
+.priority-list h2,
+.brain-dump h2,
+.time-slots-container h2 {
+  margin-top: 5px; /* Remove top margin */
+  padding-top: 0px; /* Remove top padding */
 }
