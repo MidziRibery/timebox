@@ -4,7 +4,15 @@ const BrainDump = () => {
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState("");
 
-  const colors = ["#c3e6cb", "#a8d5e2", "#d4c4fb"]; // pastel colors to rotate
+  const colors = [
+    "#c3e6cb",
+    "#a8d5e2",
+    "#d4c4fb",
+    "#fff9b1",
+    "#ffd1b3",
+    "#e2c6f2",
+  ];
+  // pastel colors to rotate
   const [colorIndex, setColorIndex] = useState(0);
 
   // Track which tasks are struck-through
@@ -51,8 +59,15 @@ const BrainDump = () => {
   return (
     <div className="brain-dump">
       <h2>Brain Dump</h2>
-      <h3>Feeling overwhelmed? Just dump your worries here!</h3>
-      <h3>Hold to Drag and Drop!</h3>
+
+      {/* Only show instructions when there are no tasks */}
+      {tasks.length === 0 && (
+        <>
+          <h3>Feeling overwhelmed? Just dump your worries here!</h3>
+          <h3>Hold to Drag and Drop!</h3>
+        </>
+      )}
+
       <input
         type="text"
         placeholder="Enter a task and press Enter"
@@ -60,6 +75,7 @@ const BrainDump = () => {
         onChange={handleInputChange}
         onKeyDown={handleAddTask}
       />
+
       <ul>
         {tasks.map((task, index) => (
           <li
