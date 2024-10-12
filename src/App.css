@@ -197,3 +197,68 @@ button,
   font-size: 16px; /* Adjust size if necessary */
   line-height: 1.5; /* Improves readability */
 }
+/* Section headings (Top Priorities, Brain Dump, etc.) */
+h2 {
+  font-size: 1.6em; /* Increase font size */
+  color: #333; /* Keep the darker gray for readability */
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for a pop effect */
+  margin-bottom: 10px; /* Add spacing below headings */
+}
+
+/* Optional: Slight margin adjustment for better spacing */
+.priority-list,
+.brain-dump,
+.dump-container {
+  margin-bottom: 20px; /* Increased margin to add more space between sections */
+}
+
+/* Time slot hover effect */
+.time-slot {
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.time-slot:hover {
+  background-color: #d3e8f8; /* Light blue color when hovering */
+  border-color: #b0d4f1; /* Change border color slightly */
+  cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+}
+
+/*Shadow*/
+.priority-list,
+.brain-dump,
+.time-slots-container {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*Task completed animation*/
+.task-completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.priority-item {
+  border: 2px solid #ffa500; /* Orange border */
+  background-color: #fff8e7; /* Light yellow background */
+  transition: all 0.3s ease;
+}
+
+.priority-item:hover {
+  box-shadow: 0px 4px 12px rgba(255, 165, 0, 0.2); /* Slight glow on hover */
+}
+
+.task-item-removing {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px); /* Slide out while fading */
+  }
+}
