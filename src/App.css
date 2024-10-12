@@ -273,3 +273,61 @@ h2 {
   margin-top: 5px; /* Remove top margin */
   padding-top: 0px; /* Remove top padding */
 }
+
+/*Mobile Optimization*/
+
+/* Media Query for screens smaller than 768px (for mobile) */
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens */
+  .timebox-container {
+    flex-direction: column; /* Stack sections vertically */
+    padding: 10px; /* Reduce padding */
+  }
+
+  /* Adjust the left and right sections to take full width on mobile */
+  .left-section,
+  .right-section {
+    width: 100%; /* Full width */
+    padding: 10px 0; /* Reduce padding */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  /* Adjust text size for better readability */
+  h1,
+  h2 {
+    font-size: 1.4em; /* Slightly smaller font size for mobile */
+  }
+
+  /* Reduce padding and margins for containers */
+  .priority-list,
+  .brain-dump,
+  .time-slots-container,
+  .dump-container {
+    padding: 10px;
+    margin-bottom: 15px; /* Reduce bottom margin */
+  }
+
+  /* Adjust time slots to be more compact */
+  .time-slot {
+    padding: 5px;
+    width: 100%; /* Full width on mobile */
+  }
+
+  /* Adjust button sizes */
+  button {
+    padding: 5px 8px;
+    font-size: 14px; /* Reduce font size for buttons */
+  }
+
+  /* Adjust input field size */
+  input[type="text"] {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Date selector should be more compact on mobile */
+  .date-selector {
+    flex-direction: column; /* Stack date and select inputs */
+    gap: 10px; /* Reduce gap between elements */
+  }
+}
