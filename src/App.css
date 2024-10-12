@@ -274,14 +274,27 @@ h2 {
   padding-top: 0px; /* Remove top padding */
 }
 
-/*Mobile Optimization*/
+/* Mobile Optimization */
 
 /* Media Query for screens smaller than 768px (for mobile) */
 @media (max-width: 768px) {
+  /* Hide instructions (Dump) on mobile */
+  .dump-container {
+    display: none;
+  }
+
   /* Adjust layout for smaller screens */
   .timebox-container {
     flex-direction: column; /* Stack sections vertically */
     padding: 10px; /* Reduce padding */
+  }
+
+  /* Make Time Slots scrollable */
+  .time-slots-container {
+    margin-top: 0px;
+    max-height: 400px; /* Set a max height for the time slots */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 0px; /* Add a bit of padding to the right to accommodate scrollbar */
   }
 
   /* Adjust the left and right sections to take full width on mobile */
@@ -309,7 +322,7 @@ h2 {
 
   /* Adjust time slots to be more compact */
   .time-slot {
-    padding: 5px;
+    padding: 1px;
     width: 100%; /* Full width on mobile */
   }
 
@@ -325,9 +338,36 @@ h2 {
     padding: 8px;
   }
 
-  /* Date selector should be more compact on mobile */
+  /* Adjust Date Selector for mobile view */
   .date-selector {
-    flex-direction: column; /* Stack date and select inputs */
+    flex-direction: row; /* Align items side by side */
+    justify-content: space-between; /* Space between Day and Date */
+    align-items: center;
     gap: 10px; /* Reduce gap between elements */
+    padding-left: 15px; /* Add padding to the left of the container */
+    padding-right: 15px; /* Add padding to the right of the container */
+  }
+
+  /* Ensure Day and Date selectors take appropriate width */
+  .date-selector select,
+  .date-selector input[type="date"] {
+    width: 45%; /* Adjust width to fit side by side */
+    font-size: 14px; /* Adjust font size */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+  }
+
+  /* Hide Day: and Date: labels on mobile */
+  .date-selector label {
+    display: none; /* Hide the labels */
+  }
+
+  /* Adjust the font size of the time column */
+  .hour-column {
+    color: #555; /* Muted text color */
+    font-size: 0.7em; /* Reduce font size */
+  }
+
+  .brain-dump {
+    margin-bottom: 0px; /* Or whichever value is creating the gap */
   }
 }
