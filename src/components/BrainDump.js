@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 const BrainDump = () => {
-  const [tasks, setTasks] = useState([]);
-  const [taskInput, setTaskInput] = useState("");
+  const [tasks, setTasks] = useState([]); // Task list state
+  const [taskInput, setTaskInput] = useState(""); // Current input state
+  const [colorIndex, setColorIndex] = useState(0); // Color index for rotating colors
+  const [strikeTasks, setStrikeTasks] = useState([]); // To track completed tasks
 
+  // Pastel colors for tasks
   const colors = [
     "#c3e6cb",
     "#a8d5e2",
@@ -12,55 +15,48 @@ const BrainDump = () => {
     "#ffd1b3",
     "#e2c6f2",
   ];
-  // pastel colors to rotate
-  const [colorIndex, setColorIndex] = useState(0);
 
-  // Track which tasks are struck-through
-  const [strikeTasks, setStrikeTasks] = useState([]);
+  // Handle input change for task input field
+  const handleInputChange = (e) => setTaskInput(e.target.value);
 
-  // Handle input change
-  const handleInputChange = (e) => {
-    setTaskInput(e.target.value);
-  };
-
-  // Add a task to the Brain Dump
+  // Add a new task when Enter key is pressed
   const handleAddTask = (e) => {
     if (e.key === "Enter" && taskInput.trim()) {
       const newTask = {
         text: taskInput,
-        color: colors[colorIndex % colors.length], // Assign a color in rotation
+        color: colors[colorIndex % colors.length],
       };
       setTasks([...tasks, newTask]);
-      setStrikeTasks([...strikeTasks, false]); // Initialize the strike-through state for this task
-      setTaskInput("");
-      setColorIndex(colorIndex + 1); // Rotate to next color
+      setStrikeTasks([...strikeTasks, false]);
+      setTaskInput(""); // Clear input field
+      setColorIndex(colorIndex + 1); // Rotate to the next color
     }
   };
 
-  // Toggle strike-through with the checkbox
+  // Toggle strike-through for completed tasks
   const handleCheckboxChange = (index) => {
-    const newStrikeTasks = [...strikeTasks];
-    newStrikeTasks[index] = !newStrikeTasks[index]; // Toggle strike-through
-    setStrikeTasks(newStrikeTasks);
+    const updatedStrikeTasks = [...strikeTasks];
+    updatedStrikeTasks[index] = !updatedStrikeTasks[index];
+    setStrikeTasks(updatedStrikeTasks);
   };
 
-  // Remove task function
+  // Remove a task from the list
   const removeTask = (index) => {
-    const newTasks = tasks.filter((_, i) => i !== index);
-    setTasks(newTasks);
+    setTasks(tasks.filter((_, i) => i !== index));
     setStrikeTasks(strikeTasks.filter((_, i) => i !== index));
   };
 
-  // Handle dragging from Brain Dump
+  // Handle dragging from Brain Dump (for drag-and-drop)
   const handleDragStart = (e, task) => {
-    e.dataTransfer.setData("text", JSON.stringify(task)); // Pass the entire task object as JSON
+    if ("ontouchstart" in window) e.preventDefault(); // Prevents drag issue on mobile
+    e.dataTransfer.setData("text", JSON.stringify(task));
   };
 
   return (
     <div className="brain-dump">
       <h2>Brain Dump</h2>
 
-      {/* Only show instructions when there are no tasks */}
+      {/* Show instructions if no tasks are present */}
       {tasks.length === 0 && (
         <>
           <h3>Feeling overwhelmed? Just dump your worries here!</h3>
@@ -68,6 +64,7 @@ const BrainDump = () => {
         </>
       )}
 
+      {/* Input for new tasks */}
       <input
         type="text"
         placeholder="Enter a task and press Enter"
@@ -76,40 +73,27 @@ const BrainDump = () => {
         onKeyDown={handleAddTask}
       />
 
+      {/* Task List */}
       <ul>
         {tasks.map((task, index) => (
           <li
             key={index}
             className="task-item"
             draggable
-            onDragStart={(e) => handleDragStart(e, task)} // Pass task object with color
-            style={{
-              backgroundColor: task.color,
-              display: "flex",
-              alignItems: "center", // Ensures alignment of checkbox and text
-            }}
+            onDragStart={(e) => handleDragStart(e, task)} // Enable dragging of task
+            style={{ backgroundColor: task.color }} // Set background color
           >
+            {/* Checkbox to strike-through completed tasks */}
             <input
               type="checkbox"
               onChange={() => handleCheckboxChange(index)}
-              checked={strikeTasks[index]} // Bind checkbox to strike state
-              style={{ width: "20px", height: "20px", marginRight: "10px" }} // Larger checkbox
+              checked={strikeTasks[index]}
             />
-            <span
-              style={{
-                fontSize: "18px",
-                textDecoration: strikeTasks[index] ? "line-through" : "none", // Apply strike only to text
-                flexGrow: 1,
-              }}
-            >
+            <span className={strikeTasks[index] ? "task-completed" : ""}>
               {task.text}
             </span>
-            <button
-              onClick={() => removeTask(index)}
-              style={{ marginLeft: "10px" }}
-            >
-              X
-            </button>
+            <button onClick={() => removeTask(index)}>X</button>{" "}
+            {/* Remove task */}
           </li>
         ))}
       </ul>

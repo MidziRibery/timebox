@@ -1,12 +1,12 @@
 /* === General App Styling === */
 
-/* Centering the title "Timebox App" */
+/* Title Styling - Centering the title "Timebox App" */
 h1 {
   text-align: center;
-  color: #333; /* Darker gray for text */
+  color: #333; /* Dark gray for better contrast */
 }
 
-/* Make the cursor a pointer (hand) when hovering over buttons and draggable items */
+/* Make cursor a pointer for buttons and draggable items */
 button,
 [draggable="true"] {
   cursor: pointer;
@@ -14,171 +14,186 @@ button,
 
 /* === Layout Containers === */
 
-/* Flex container for left and right sections */
+/* Main container for the app, holding the left and right sections */
 .timebox-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  background-color: #f1f3f4; /* Subtle light gray background */
-  padding: 10px 20px;
-  border-radius: 10px;
+  display: flex; /* Use flexbox to align left and right sections */
+  justify-content: space-between; /* Space between the two sections */
+  margin-top: 20px; /* Add margin at the top */
+  background-color: #f1f3f4; /* Light gray background for the container */
+  padding: 10px 20px; /* Padding inside the container for spacing */
+  border-radius: 10px; /* Rounded corners for a softer look */
 }
 
-/* Left section styling */
+/* Left section (Top Priorities and Brain Dump) styling */
 .left-section {
-  width: 30%;
-  margin-right: 5px;
-  padding-top: 20px; /* Remove any unnecessary top padding */
+  width: 30%; /* Left section takes 30% of the container width */
+  margin-right: 5px; /* Space between left and right sections */
+  padding-top: 20px; /* Padding at the top of the left section */
 }
 
-/* Right section styling */
+/* Right section (Time Slots) styling */
 .right-section {
-  width: 70%;
-  padding-right: 20px;
+  width: 70%; /* Right section takes 70% of the container width */
+  padding-right: 20px; /* Padding on the right side */
 }
 
-/* === Date Selector === */
+/* === Date Selector Styling === */
 
+/* Container for the date selector (Day and Date inputs) */
 .date-selector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  gap: 20px;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the elements horizontally */
+  align-items: center; /* Align items vertically in the center */
+  margin-top: 20px; /* Add margin above the date selector */
+  gap: 20px; /* Space between the day and date fields */
 }
 
+/* Styling for the dropdown and date input fields */
 .date-selector select,
 .date-selector input[type="date"] {
-  padding: 5px;
-  font-size: 14px;
-  width: 150px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
+  padding: 5px; /* Padding inside the input fields */
+  font-size: 14px; /* Font size for the text inside the inputs */
+  width: 150px; /* Width of the inputs */
+  border: 2px solid #ccc; /* Light gray border for the inputs */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #fff; /* White background for inputs */
 }
 
-/* === Priority List and Brain Dump === */
+/* === Priority List and Brain Dump Styling === */
 
-/* Styling for priority list */
+/* Styling for the priority list container */
 .priority-list {
-  border: 3px solid #bbb;
-  padding: 15px;
+  border: 3px solid #bbb; /* Light gray border */
+  padding: 15px; /* Padding inside the container */
   background-color: #fbeee9; /* Soft blue background */
-  border-radius: 8px;
-  margin-top: 0px; /* Remove any top margin */
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 0px; /* Remove top margin */
   padding-top: 0px; /* Optionally remove extra padding at the top */
 }
 
-/* Styling for brain dump */
+/* Styling for the brain dump container */
 .brain-dump {
-  border: 3px solid #bbb;
-  padding: 15px;
+  border: 3px solid #bbb; /* Light gray border */
+  padding: 15px; /* Padding inside the container */
   background-color: #e9f5fb; /* Soft pink background */
-  border-radius: 8px;
-  margin-top: 0px; /* Remove any top margin */
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 0px; /* Remove top margin */
   padding-top: 0px; /* Optionally remove extra padding at the top */
 }
 
-/* Styling for the Brain Dump input field */
+/* Styling for the input field in Brain Dump */
 .brain-dump input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  border-radius: 8px;
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside the input */
+  font-size: 14px; /* Font size for input text */
+  margin-top: 10px; /* Margin above the input */
+  border: 1px solid #ccc; /* Light gray border */
+  box-sizing: border-box; /* Ensure padding and border are included in the element’s width and height */
+  border-radius: 8px; /* Rounded corners */
 }
 
+/* Remove bullet points from the task list in Brain Dump */
 .brain-dump ul {
   list-style-type: none;
   padding-left: 0;
   margin-left: 0;
 }
 
-/* === Task List Styling === */
+/* === Task List Styling (both Priority List and Brain Dump) === */
+
+/* General styling for each task in the priority list and brain dump */
 .priority-item,
 .task-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  color: #333;
+  display: flex; /* Flexbox for horizontal alignment */
+  justify-content: space-between; /* Space between text and delete button */
+  align-items: center; /* Vertically center content */
+  margin-bottom: 10px; /* Space between each task */
+  padding: 10px; /* Padding inside each task item */
+  border: 1px solid #ddd; /* Light gray border */
+  background-color: #f9f9f9; /* Very light gray background */
+  border-radius: 5px; /* Rounded corners */
+  color: #333; /* Darker text color */
 }
 
 /* === Button Styling === */
+
+/* Styling for the delete button in both priority and brain dump items */
 .priority-item button,
 .task-item button {
-  background-color: #ff6666;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin-left: 20px;
-  border-radius: 5px;
+  background-color: #ff6666; /* Red background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 5px 10px; /* Padding inside the button */
+  margin-left: 20px; /* Space between the task text and the button */
+  border-radius: 5px; /* Rounded corners */
 }
 
+/* Hover effect for delete buttons */
 .priority-item button:hover,
 .task-item button:hover {
-  background-color: #f82e2e;
+  background-color: #f82e2e; /* Darker red on hover */
 }
 
 /* === Time Slot Styling === */
+
+/* Container for the time slots */
 .time-slots-container {
-  width: 100%;
-  margin-top: 20px;
-  border: 3px solid #bbb; /* Add border */
-  padding: 15px; /* Add padding inside the container */
-  background-color: #f3f4e6; /* Soft background color to match the style */
-  border-radius: 8px; /* Add rounded corners */
+  width: 100%; /* Full width */
+  margin-top: 20px; /* Margin above the container */
+  border: 3px solid #bbb; /* Light gray border */
+  padding: 15px; /* Padding inside the container */
+  background-color: #f3f4e6; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
 }
 
+/* Header for the time slots container */
 .time-slots-container h2 {
   text-align: center;
-  color: #333; /* Darker gray for better readability */
+  color: #333; /* Dark gray text for the header */
 }
 
-/* Header row to display :00 and :30 */
+/* Styling for the header row (displays :00 and :30) */
 .time-slots-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  text-align: center;
-  font-weight: bold;
-  color: #444;
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Space between columns */
+  padding: 10px 0; /* Padding inside the header row */
+  text-align: center; /* Center text */
+  font-weight: bold; /* Bold text for the header */
+  color: #444; /* Medium gray text color */
 }
 
+/* Individual time slot headers (:00 and :30) */
 .time-slot-header {
-  width: 40%; /* Ensure proper space distribution */
-  margin-right: 1%; /* Adjust this value for finer control */
+  width: 40%; /* Equal width for both columns */
+  margin-right: 1%; /* Space between the two columns */
 }
 
-/* Time slot row */
+/* Row styling for each hour and its corresponding time slots */
 .time-slot-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  align-items: center;
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Space between columns */
+  margin-bottom: 10px; /* Margin below each row */
+  align-items: center; /* Vertically center content */
 }
 
+/* Hour column (5AM, 6AM, etc.) styling */
 .hour-column {
-  width: 7%;
-  text-align: center;
-  color: #555; /* Muted text color */
+  width: 7%; /* Fixed width for the hour column */
+  text-align: center; /* Center the text */
+  color: #555; /* Muted gray text color */
 }
 
+/* Styling for the individual time slots */
 .time-slot {
-  width: 45%;
-  padding: 3px;
-  border: 1px solid #ddd;
-  background-color: #e2e6ea; /* Soft light gray for time slots */
-  text-align: center;
-  border-radius: 5px;
+  width: 45%; /* Each time slot takes 45% of the row */
+  padding: 3px; /* Padding inside the time slot */
+  border: 1px solid #ddd; /* Light gray border */
+  background-color: #e2e6ea; /* Light gray background */
+  text-align: center; /* Center the text */
+  border-radius: 5px; /* Rounded corners */
 }
 
+/* Styling for each task inside the time slot */
 .task-slot {
   padding: 5px;
   border: 1px solid #ddd;
@@ -186,6 +201,7 @@ button,
   border-radius: 5px;
 }
 
+/* === Instruction Container Styling === */
 .dump-container {
   border: 3px solid #ccc;
   padding: 20px;
@@ -195,67 +211,73 @@ button,
   text-align: center;
 }
 
+/* Styling for instruction text */
 .instructions-text {
-  text-align: left; /* Aligns the instructions text to the left */
+  text-align: left;
   padding: 10px;
-  font-size: 16px; /* Adjust size if necessary */
-  line-height: 1.5; /* Improves readability */
-}
-/* Section headings (Top Priorities, Brain Dump, etc.) */
-h2 {
-  font-size: 1.6em; /* Increase font size */
-  color: #333; /* Keep the darker gray for readability */
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for a pop effect */
-  margin-bottom: 10px; /* Add spacing below headings */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Optional: Slight margin adjustment for better spacing */
+/* === Section Headings (Top Priorities, Brain Dump, etc.) === */
+h2 {
+  font-size: 1.6em;
+  color: #333;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+/* Slight margin adjustment for better spacing */
 .priority-list,
 .brain-dump,
 .dump-container {
-  margin-bottom: 20px; /* Increased margin to add more space between sections */
+  margin-bottom: 20px;
 }
 
 /* Time slot hover effect */
 .time-slot {
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease;
 }
 
 .time-slot:hover {
-  background-color: #d3e8f8; /* Light blue color when hovering */
-  border-color: #b0d4f1; /* Change border color slightly */
-  cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+  background-color: #d3e8f8;
+  border-color: #b0d4f1;
+  cursor: pointer;
 }
 
-/*Shadow*/
+/* Shadow effect for priority list, brain dump, and time slots */
 .priority-list,
 .brain-dump,
 .time-slots-container {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/*Task completed animation*/
+/* Styling for tasks that are completed (strikethrough and opacity) */
 .task-completed {
   text-decoration: line-through;
   opacity: 0.6;
-  transition: all 0.3s ease; /* Smooth transition */
-}
-
-.priority-item {
-  border: 2px solid #ffa500; /* Orange border */
-  background-color: #fff8e7; /* Light yellow background */
   transition: all 0.3s ease;
 }
 
-.priority-item:hover {
-  box-shadow: 0px 4px 12px rgba(255, 165, 0, 0.2); /* Slight glow on hover */
+/* Styling for the priority task item */
+.priority-item {
+  border: 2px solid #ffa500;
+  background-color: #fff8e7;
+  transition: all 0.3s ease;
 }
 
+/* Hover effect for priority task items */
+.priority-item:hover {
+  box-shadow: 0px 4px 12px rgba(255, 165, 0, 0.2);
+}
+
+/* Animation for removing a task */
 .task-item-removing {
   animation: fadeOut 0.5s ease forwards;
 }
 
+/* Keyframes for fade out animation when removing a task */
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -263,30 +285,31 @@ h2 {
   }
   100% {
     opacity: 0;
-    transform: translateX(100px); /* Slide out while fading */
+    transform: translateX(100px);
   }
 }
 
+/* Remove unnecessary top margin and padding for section headings */
 .priority-list h2,
 .brain-dump h2,
 .time-slots-container h2 {
-  margin-top: 5px; /* Remove top margin */
-  padding-top: 0px; /* Remove top padding */
+  margin-top: 5px;
+  padding-top: 0px;
 }
 
-/* Mobile Optimization */
+/* === Mobile Optimization === */
 
-/* Media Query for screens smaller than 768px (for mobile) */
+/* Media query for screens smaller than 768px */
 @media (max-width: 768px) {
-  /* Hide instructions (Dump) on mobile */
+  /* Hide the instructions container on mobile */
   .dump-container {
     display: none;
   }
 
-  /* Adjust layout for smaller screens */
+  /* Stack sections vertically on mobile */
   .timebox-container {
-    flex-direction: column; /* Stack sections vertically */
-    padding: 10px; /* Reduce padding */
+    flex-direction: column;
+    padding: 10px;
   }
 
   /* Make Time Slots scrollable */
@@ -294,80 +317,80 @@ h2 {
     margin-top: 0px;
     max-height: 400px; /* Set a max height for the time slots */
     overflow-y: auto; /* Enable vertical scrolling */
-    padding-right: 0px; /* Add a bit of padding to the right to accommodate scrollbar */
+    padding-right: 0px;
   }
 
-  /* Adjust the left and right sections to take full width on mobile */
+  /* Adjust left and right sections to full width on mobile */
   .left-section,
   .right-section {
-    width: 100%; /* Full width */
-    padding: 10px 0; /* Reduce padding */
-    margin-right: 0; /* Remove right margin */
+    width: 100%;
+    padding: 10px 0;
+    margin-right: 0;
   }
 
-  /* Adjust text size for better readability */
+  /* Adjust text size for mobile */
   h1,
   h2 {
-    font-size: 1.4em; /* Slightly smaller font size for mobile */
+    font-size: 1.4em;
   }
 
-  /* Reduce padding and margins for containers */
+  /* Reduce padding and margins for containers on mobile */
   .priority-list,
   .brain-dump,
-  .time-slots-container,
-  .dump-container {
+  .time-slots-container {
     padding: 10px;
-    margin-bottom: 15px; /* Reduce bottom margin */
+    margin-bottom: 15px;
   }
 
-  /* Adjust time slots to be more compact */
+  /* Adjust time slots to fit mobile screen */
   .time-slot {
     padding: 1px;
-    width: 100%; /* Full width on mobile */
+    width: 100%;
   }
 
-  /* Adjust button sizes */
+  /* Adjust button sizes for mobile */
   button {
     padding: 5px 8px;
-    font-size: 14px; /* Reduce font size for buttons */
+    font-size: 14px;
   }
 
-  /* Adjust input field size */
+  /* Adjust input field size for mobile */
   input[type="text"] {
     font-size: 14px;
     padding: 8px;
   }
 
-  /* Adjust Date Selector for mobile view */
+  /* Adjust Date Selector for mobile */
   .date-selector {
-    flex-direction: row; /* Align items side by side */
-    justify-content: space-between; /* Space between Day and Date */
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px; /* Reduce gap between elements */
-    padding-left: 15px; /* Add padding to the left of the container */
-    padding-right: 15px; /* Add padding to the right of the container */
+    gap: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  /* Ensure Day and Date selectors take appropriate width */
+  /* Adjust width of date selector inputs for mobile */
   .date-selector select,
   .date-selector input[type="date"] {
-    width: 45%; /* Adjust width to fit side by side */
-    font-size: 14px; /* Adjust font size */
-    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    width: 45%;
+    font-size: 14px;
+    border-radius: 8px;
   }
 
-  /* Hide Day: and Date: labels on mobile */
+  /* Hide the "Day" and "Date" labels on mobile */
   .date-selector label {
-    display: none; /* Hide the labels */
+    display: none;
   }
 
-  /* Adjust the font size of the time column */
+  /* Adjust font size for hour column on mobile */
   .hour-column {
-    color: #555; /* Muted text color */
-    font-size: 0.7em; /* Reduce font size */
+    color: #555;
+    font-size: 0.7em;
   }
 
+  /* Remove unnecessary margin below Brain Dump */
   .brain-dump {
-    margin-bottom: 0px; /* Or whichever value is creating the gap */
+    margin-bottom: 0px;
   }
 }

@@ -29,28 +29,27 @@ const TimeSlots = () => {
     Array(hours.length).fill(null)
   );
 
-  // Handle drop into time slots, store task object with text and color
+  // Handle task drop into time slots
   const handleDrop = (e, slotType, index) => {
     const taskData = JSON.parse(e.dataTransfer.getData("text"));
 
     if (slotType === ":00") {
       const newTasksInSlots00 = [...tasksInSlots00];
-      newTasksInSlots00[index] = taskData; // Store task object with text and color
+      newTasksInSlots00[index] = taskData;
       setTasksInSlots00(newTasksInSlots00);
     } else if (slotType === ":30") {
       const newTasksInSlots30 = [...tasksInSlots30];
-      newTasksInSlots30[index] = taskData; // Store task object with text and color
+      newTasksInSlots30[index] = taskData;
       setTasksInSlots30(newTasksInSlots30);
     }
   };
 
-  const allowDrop = (e) => {
-    e.preventDefault();
-  };
+  // Allow drop functionality
+  const allowDrop = (e) => e.preventDefault();
 
-  // Handle dragging, include both text and color in the data transfer
+  // Handle task drag from time slots
   const handleDragStart = (e, task, slotType, index) => {
-    e.dataTransfer.setData("text", JSON.stringify(task)); // Stringify the task object to include text and color
+    e.dataTransfer.setData("text", JSON.stringify(task));
 
     if (slotType === ":00") {
       const newTasksInSlots00 = [...tasksInSlots00];
@@ -65,18 +64,18 @@ const TimeSlots = () => {
 
   return (
     <div className="time-slots-container">
-      <h2>Time Slots</h2> {/* New header for Time Slots */}
-      {/* Header row for :00 and :30 */}
+      <h2>Time Slots</h2>
       <div className="time-slots-header">
-        <div className="hour-column-header"></div> {/* Empty for alignment */}
+        <div className="hour-column-header"></div>{" "}
+        {/* Empty column for alignment */}
         <div className="time-slot-header">:00</div>
         <div className="time-slot-header">:30</div>
       </div>
-      {/* Time slots rendered side by side with hour column */}
+      {/* Map through hours and render time slots */}
       {hours.map((hour, index) => (
         <div className="time-slot-row" key={index}>
           <div className="hour-column">
-            <strong>{hour}</strong> {/* Only display the hour here */}
+            <strong>{hour}</strong>
           </div>
           <div
             className="time-slot"
@@ -93,7 +92,7 @@ const TimeSlots = () => {
               style={{
                 backgroundColor: tasksInSlots00[index]
                   ? tasksInSlots00[index].color
-                  : "#f9f9f9", // Use task color if present
+                  : "#f9f9f9",
               }}
             >
               {tasksInSlots00[index] ? tasksInSlots00[index].text : "No task"}
@@ -114,7 +113,7 @@ const TimeSlots = () => {
               style={{
                 backgroundColor: tasksInSlots30[index]
                   ? tasksInSlots30[index].color
-                  : "#f9f9f9", // Use task color if present
+                  : "#f9f9f9",
               }}
             >
               {tasksInSlots30[index] ? tasksInSlots30[index].text : "No task"}
